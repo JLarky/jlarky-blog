@@ -1,1 +1,12 @@
-export const siteTitle = 'Yaroslav Lapin'
+---
+import BaseLayout, { Props as BaseProps, siteTitle } from "./BaseLayout.astro";
+export { siteTitle };
+
+export interface Props extends BaseProps {
+}
+const { metadescription, title } = Astro.props as Props;
+---
+
+<BaseLayout {title} {metadescription}>
+    <slot />
+</BaseLayout>

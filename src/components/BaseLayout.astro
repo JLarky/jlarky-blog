@@ -1,0 +1,26 @@
+---
+export const siteTitle = 'Yaroslav Lapin'
+
+export interface Props {
+    title?: string
+    metadescription?: string
+}
+const { metadescription, title } = Astro.props as Props;
+---
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{title || siteTitle}</title>
+    <!-- TODO: add GA for UA-5041583-11 see https://unpkg.com/astro-analytics@2.1.1/src/GoogleAnalytics.astro -->
+    <meta name="description" content={metadescription || "Yaroslav (JLarky) Lapin web developer extraordinaire" } />
+</head>
+
+<body>
+    <slot />
+</body>
+
+</html>
