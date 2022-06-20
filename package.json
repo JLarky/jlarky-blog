@@ -9,11 +9,13 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "fmt": "prettier --write '**/*.{ts,js,tsx,jsx,css,json,md,prettierrc,html,yml}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JLarky",
   "license": "MIT",
   "devDependencies": {
-    "astro": "^1.0.0-beta.47"
+    "astro": "^1.0.0-beta.47",
+    "prettier": "^2.7.1"
   }
 }

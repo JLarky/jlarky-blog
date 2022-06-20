@@ -2,9 +2,11 @@ lockfileVersion: 5.3
 
 specifiers:
   astro: ^1.0.0-beta.47
+  prettier: ^2.7.1
 
 devDependencies:
   astro: 1.0.0-beta.47
+  prettier: 2.7.1
 
 packages:
 
@@ -2637,6 +2639,12 @@ packages:
       find-yarn-workspace-root2: 1.2.16
       path-exists: 4.0.0
       which-pm: 2.0.0
+    dev: true
+
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /prismjs/1.28.0:
