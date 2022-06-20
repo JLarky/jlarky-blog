@@ -3,11 +3,16 @@
   "version": "0.0.1",
   "description": "Just my blog",
   "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JLarky",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "astro": "^1.0.0-beta.47"
+  }
 }
