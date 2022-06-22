@@ -6,6 +6,7 @@ specifiers:
   astro: ^1.0.0-beta.47
   date-fns: ^2.28.0
   prettier: ^2.7.1
+  prettier-plugin-astro: ^0.1.0-next.5
   tailwind: ^4.0.0
   typescript: ^4.7.4
 
@@ -17,6 +18,7 @@ devDependencies:
   '@types/node': 18.0.0
   astro: 1.0.0-beta.47
   prettier: 2.7.1
+  prettier-plugin-astro: 0.1.0-next.5
   tailwind: 4.0.0
   typescript: 4.7.4
 
@@ -427,6 +429,18 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+    dev: true
+
+  /@pkgr/utils/2.2.0:
+    resolution: {integrity: sha512-/+EeY/T/NLCfF4rvgUetl7ERNwoPz5q/p+8CYeAIFblsKSQbVJjmMccs/Y7CsOPv47hXcBrhk5IqOf9AqRNfhg==}
+    engines: {node: '>=12'}
+    dependencies:
+      cross-spawn: 7.0.3
+      is-glob: 4.0.3
+      open: 8.4.0
+      picocolors: 1.0.0
+      tiny-glob: 0.2.9
+      tslib: 2.4.0
     dev: true
 
   /@polka/url/1.0.0-next.21:
@@ -1197,6 +1211,11 @@ packages:
       clone: 1.0.4
     dev: true
 
+  /define-lazy-prop/2.0.0:
+    resolution: {integrity: sha512-Ds09qNh8yw3khSjiJjiUInaGX9xlqZDY7JVryGxdxV7NPeuqQfplOpQ66yJFZut3jLa5zOwkXw1g9EI2uKh4Og==}
+    engines: {node: '>=8'}
+    dev: true
+
   /define-properties/1.1.4:
     resolution: {integrity: sha512-uckOqKcfaVvtBdsVkdPv3XjveQJsNQqmhXgRi8uhvWWuPYZCNlzT8qAyblUgNoXdHdjMTzAqeGjAoli8f+bzPA==}
     engines: {node: '>= 0.4'}
@@ -1891,6 +1910,14 @@ packages:
   /globals/11.12.0:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
     engines: {node: '>=4'}
+    dev: true
+
+  /globalyzer/0.1.0:
+    resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
+    dev: true
+
+  /globrex/0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
     dev: true
 
   /graceful-fs/4.2.10:
@@ -3257,6 +3284,15 @@ packages:
       mimic-fn: 4.0.0
     dev: true
 
+  /open/8.4.0:
+    resolution: {integrity: sha512-XgFPPM+B28FtCCgSb9I+s9szOC1vZRSwgWsRUA5ylIxRTgKozqjOCrVOqGsYABPYK5qnfqClxZTFBa8PKt2v6Q==}
+    engines: {node: '>=12'}
+    dependencies:
+      define-lazy-prop: 2.0.0
+      is-docker: 2.2.1
+      is-wsl: 2.2.0
+    dev: true
+
   /ora/6.1.0:
     resolution: {integrity: sha512-CxEP6845hLK+NHFWZ+LplGO4zfw4QSfxTlqMfvlJ988GoiUeZDMzCvqsZkFHv69sPICmJH1MDxZoQFOKXerAVw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -3481,6 +3517,16 @@ packages:
       find-yarn-workspace-root2: 1.2.16
       path-exists: 4.0.0
       which-pm: 2.0.0
+    dev: true
+
+  /prettier-plugin-astro/0.1.0-next.5:
+    resolution: {integrity: sha512-ivHtn0eY7agaOtiHFxoNbrILtH1Us5VA9OauUZoHyKH3R2OzbL+sLf4sBwiOLYan9blmBz2E2AkvDI2fxEN+Lw==}
+    engines: {node: ^14.13.1 || >=16.0.0, npm: '>=6.14.0'}
+    dependencies:
+      '@astrojs/compiler': 0.15.2
+      prettier: 2.7.1
+      sass-formatter: 0.7.4
+      synckit: 0.7.1
     dev: true
 
   /prettier/2.7.1:
@@ -3743,6 +3789,10 @@ packages:
       queue-microtask: 1.2.3
     dev: true
 
+  /s.color/0.0.15:
+    resolution: {integrity: sha512-AUNrbEUHeKY8XsYr/DYpl+qk5+aM+DChopnWOPEzn8YKzOhv4l2zH6LzZms3tOZP3wwdOyc0RmTciyi46HLIuA==}
+    dev: true
+
   /sade/1.8.1:
     resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}
     engines: {node: '>=6'}
@@ -3760,6 +3810,12 @@ packages:
 
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+    dev: true
+
+  /sass-formatter/0.7.4:
+    resolution: {integrity: sha512-8UMMSv/P5FREyca67k6PP6DsfL5c3XGbt72OKSDsfy9qaEvQPGDtA+v/9ep3An1GF8YV0C8UtgVB/haePza2nA==}
+    dependencies:
+      suf-log: 2.5.3
     dev: true
 
   /section-matter/1.0.0:
@@ -4028,6 +4084,12 @@ packages:
       inline-style-parser: 0.1.1
     dev: true
 
+  /suf-log/2.5.3:
+    resolution: {integrity: sha512-KvC8OPjzdNOe+xQ4XWJV2whQA0aM1kGVczMQ8+dStAO6KfEB140JEVQ9dE76ONZ0/Ylf67ni4tILPJB41U0eow==}
+    dependencies:
+      s.color: 0.0.15
+    dev: true
+
   /supports-color/5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
     engines: {node: '>=4'}
@@ -4068,6 +4130,14 @@ packages:
       pascal-case: 3.1.2
       svelte: 3.48.0
       typescript: 4.6.4
+    dev: true
+
+  /synckit/0.7.1:
+    resolution: {integrity: sha512-Cvv0Nzgs4Z0V6761qp4CU2+C15HRmnHaDd+sAtisbOnzIZ5wgl3ne076k28cHo+oY6eN/w0RNzRrf7CJz8dWJg==}
+    engines: {node: '>=12.20'}
+    dependencies:
+      '@pkgr/utils': 2.2.0
+      tslib: 2.4.0
     dev: true
 
   /tailwind/4.0.0:
@@ -4135,6 +4205,13 @@ packages:
 
   /timer2/1.0.0:
     resolution: {integrity: sha512-UOZql+P2ET0da+B7V3/RImN3IhC5ghb+9cpecfUhmYGIm0z73dDr3A781nBLnFYmRzeT1AmoT4w9Lgr8n7n7xg==}
+    dev: true
+
+  /tiny-glob/0.2.9:
+    resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
+    dependencies:
+      globalyzer: 0.1.0
+      globrex: 0.1.2
     dev: true
 
   /to-fast-properties/2.0.0:
