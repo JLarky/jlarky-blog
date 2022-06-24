@@ -17,9 +17,9 @@
   "devDependencies": {
     "@astrojs/tailwind": "^0.2.1",
     "@types/node": "^18.0.0",
-    "astro": "^1.0.0-beta.47",
+    "astro": "^1.0.0-beta.53",
     "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.1.0-next.5",
+    "prettier-plugin-astro": "^0.1.0",
     "tailwind": "^4.0.0",
     "typescript": "^4.7.4"
   },
