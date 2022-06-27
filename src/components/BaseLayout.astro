@@ -3,12 +3,21 @@ export const siteTitle = 'Yaroslav Lapin'
 
 export interface Props {
   title?: string
+  ogImageUrl?: string
   metadescription?: string
 }
-const { metadescription, title } = Astro.props as Props
-const ogImageUrl = `https://og-image.now.sh/${encodeURI(
-  siteTitle
-)}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`
+const {
+  metadescription,
+  title: propsTitle,
+  ogImageUrl: propsOgImageUrl,
+} = Astro.props as Props
+
+const title = propsTitle || siteTitle
+const ogImageUrl =
+  propsOgImageUrl ||
+  `https://og-image.now.sh/${encodeURI(
+    siteTitle
+  )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`
 ---
 
 <html lang='en'>
@@ -16,7 +25,7 @@ const ogImageUrl = `https://og-image.now.sh/${encodeURI(
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/x-icon' href='/favicon.ico' />
-    <title>{title || siteTitle}</title>
+    <title>{title}</title>
     <!-- TODO: add GA for UA-5041583-11 see https://unpkg.com/astro-analytics@2.1.1/src/GoogleAnalytics.astro -->
     <meta
       name='description'

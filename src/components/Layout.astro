@@ -6,10 +6,16 @@ export { siteTitle }
 export interface Props extends BaseProps {
   home?: boolean
 }
-const { metadescription, title, home } = Astro.props as Props
+const {
+  //
+  metadescription,
+  title,
+  home,
+  ogImageUrl,
+} = Astro.props as Props
 ---
 
-<BaseLayout {title} {metadescription}>
+<BaseLayout {title} {metadescription} {ogImageUrl}>
   <div class='bg-gray-100 font-sans leading-normal tracking-normal'>
     <nav class='fixed w-full z-10 top-0 bg-gray-100'>
       <div
