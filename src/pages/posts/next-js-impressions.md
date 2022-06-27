@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/PostLayout.astro
 title: "Restarting my blog with Next.js"
 date: "2020-04-26"
 ---

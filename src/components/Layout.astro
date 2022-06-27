@@ -4,10 +4,12 @@ import HeaderNavLink from './HeaderNavLink.astro'
 export { siteTitle }
 
 export interface Props extends BaseProps {
+  backToBlog?: boolean
   home?: boolean
 }
 const {
   //
+  backToBlog,
   metadescription,
   title,
   home,
@@ -80,19 +82,20 @@ const {
         <!-- Title -->
         <div class='font-sans'>
           <span class='text-base md:text-sm text-teal-500 font-bold'>
-            <!-- <span>
-                {router.pathname === '/posts/[id]' && (
+            <span>
+              {backToBlog && (
                 <>
-                    &lt;{' '}
-                    <Link href="/posts">
-                    <a class="text-base md:text-sm text-teal-500 font-bold hover:underline">
-                        BACK TO BLOG
-                    </a>
-                    </Link>
+                  &lt;{' '}
+                  <a
+                    href="/posts"
+                    class="text-base md:text-sm text-teal-500 font-bold hover:underline"
+                  >
+                    BACK TO BLOG
+                  </a>
                 </>
-                )}{' '}
-                <p />
-            </span> -->
+              )}
+              <p></p>
+            </span>
           </span>
         </div>
       </div>
