@@ -2,7 +2,6 @@ import { formatISO } from 'date-fns'
 import fs from 'fs'
 import path from 'path'
 
-console.log(process.cwd())
 const pagesDirectory = path.join(process.cwd(), 'src/pages')
 
 export async function getFileLastModified(fileName: string) {
