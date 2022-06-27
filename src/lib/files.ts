@@ -1,13 +1,13 @@
 import { formatISO } from 'date-fns'
-import fs from 'fs'
-import path from 'path'
+import { stat } from 'fs'
+import { join } from 'path'
 
-const pagesDirectory = path.join(process.cwd(), 'src/pages')
+const pagesDirectory = join(process.cwd(), 'src/pages')
 
 export async function getFileLastModified(fileName: string) {
-  const fullPath = path.join(pagesDirectory, fileName)
+  const fullPath = join(pagesDirectory, fileName)
   return new Promise<string>((resolve, reject) => {
-    fs.stat(fullPath, function (err, stats) {
+    stat(fullPath, function (err, stats) {
       if (err) {
         reject(err)
       } else {

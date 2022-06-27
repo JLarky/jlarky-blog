@@ -9,8 +9,10 @@
     "resolveJsonModule": true,
     // Enable stricter transpilation for better output.
     "isolatedModules": true,
+    // from https://vitejs.dev/guide/features.html#typescript-compiler-options
+    "useDefineForClassFields": true,
     // Add type definitions for our Vite runtime.
-    "types": ["vite/client"],
+    "types": ["vite/client", "node"],
     // ts options
     "forceConsistentCasingInFileNames": true,
     "strict": true,
