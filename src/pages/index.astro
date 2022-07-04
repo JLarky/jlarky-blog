@@ -1,29 +1,5 @@
 ---
-import BlogPosts from '../components/BlogPosts.astro'
-import Layout, { siteTitle } from '../components/Layout.astro'
-import { PostMeta } from '../lib/types'
-const posts = await Astro.glob('../pages/posts/*.md')
-const allPostsData = posts.map((x) => {
-  const meta = x.frontmatter as PostMeta
-  if (!x.url) {
-    throw new Error(`No url found for ${x.file}`)
-  }
-  return { ...meta, url: x.url }
-})
+import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout home>
-  <section
-    class='w-full px-4 md:px-6 text-xl text-gray-800 leading-normal'
-    style='font-family: Georgia,serif'
-  >
-    <p>
-      My name is{' '}
-      <a href='/contacts' class='text-gray-900'>Yaroslav Lapin</a>, I do things
-      on the internet. There’re few outdated pages about me and now I'm adding
-      one more!
-    </p>
-  </section>
-  <BlogPosts allPostsData={allPostsData} />
-  <div class='py-6'></div>
-</Layout>
+<Layout>This should not be red</Layout>

@@ -2,6 +2,10 @@
 
 /* Write your own custom base styles here */
 
+* {
+  color: red;
+}
+
 a {
   @apply text-gray-600 hover:text-gray-900 hover:underline;
 }

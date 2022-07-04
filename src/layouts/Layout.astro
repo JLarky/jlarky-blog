@@ -1,0 +1,42 @@
+---
+import BaseLayout from './BaseLayout.astro'
+---
+
+<BaseLayout>
+  <div class='bg-gray-100 font-sans leading-normal tracking-normal'>
+    <nav class='fixed w-full z-10 top-0 bg-gray-100'>
+      <div
+        class='w-full mx-auto flex flex-wrap items-center justify-between mt-0 py-3'
+      >
+        <div class='pl-4'>
+          <a
+            class='text-gray-900 hover:no-underline font-extrabold text-xl'
+            href='/'
+          >
+            Yaroslav Lapin's Blog
+          </a>
+        </div>
+        <div class='w-full flex-grow items-center w-auto mt-2 mt-0 z-20'>
+          <ul class='block list-reset flex justify-end flex-1 items-center'>
+            <li class='mr-3'>
+              <a href='/'>Home</a>
+            </li>
+            <li class='mr-3'>
+              <a href='/posts'>Blog</a>
+            </li>
+            <li class='mr-3'>
+              <a href='/contacts'>Contacts</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Container -->
+    <div class='container w-full md:max-w-3xl mx-auto pt-20'>
+      <main>
+        <slot></slot>
+      </main>
+    </div>
+    <!-- /container -->
+  </div>
+</BaseLayout>
