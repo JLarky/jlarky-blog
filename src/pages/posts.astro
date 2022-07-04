@@ -1,6 +1,6 @@
 ---
 import BlogPosts from '../components/BlogPosts.astro'
-import Layout, { siteTitle } from '../components/Layout.astro'
+import Layout, { siteTitle } from '../layouts/Layout.astro'
 import { PostMeta } from '../lib/types'
 const posts = await Astro.glob('../pages/posts/*.md')
 const allPostsData = posts.map((x) => {
