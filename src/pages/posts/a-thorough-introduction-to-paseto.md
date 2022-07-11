@@ -43,7 +43,7 @@ og:image: "https://developer.okta.com/assets-jekyll/blog/a-thorough-introduction
 
 Мне нравится представлять PASETO как "Веб-токены JSON: лучшие части". Знакомо звучит?
 
-![blog/a-thorough-introduction-to-paseto/json-web-tokens-the-good-parts.jpg](https://d33wubrfki0l68.cloudfront.net/90017427b22aae32d42fbf3a971faf2b3d35ec65/aa31d/assets-jekyll/blog/a-thorough-introduction-to-paseto/json-web-tokens-the-good-parts-0d4bc980e0cbc5f542f521ce7f673a14890e8726df21a2d20f5061a49d658bc7.jpg)
+<img loading="lazy" src="https://d33wubrfki0l68.cloudfront.net/90017427b22aae32d42fbf3a971faf2b3d35ec65/aa31d/assets-jekyll/blog/a-thorough-introduction-to-paseto/json-web-tokens-the-good-parts-0d4bc980e0cbc5f542f521ce7f673a14890e8726df21a2d20f5061a49d658bc7.jpg" alt="blog/a-thorough-introduction-to-paseto/json-web-tokens-the-good-parts.jpg" />
 
 ## Структура токена PASETO
 
@@ -195,7 +195,7 @@ PASETO разработаны как одноразовые токены, пре
 
 Затем вебсайт с помощью PASETO перенаправит браузер пользователя на сервис загрузки в параметре URL (например, `https://download.example.com?token=v2.local.xxx?file=video1.mp4`). Сервис загрузки получит этот запрос, проанализирует параметр `token` из URL-адреса и расшифрует локальный PASETO. Затем сервис загрузки сможет проверить идентификатор покупки и позволит пользователю загрузить файл, указанный в параметрах строки запроса, но только при условии, что это позволяет PASETO.
 
-![How to use local PASETOs](https://d33wubrfki0l68.cloudfront.net/4b0bf94a502f80d08056d91587b1a3aa4f8cb391/9a947/assets-jekyll/blog/a-thorough-introduction-to-paseto/how-to-use-local-pasetos-1116dd746b1e11a4f5dcfa5e22016d7da449405d3deb0f1bccb90d7ef10bb949.gif)
+<img loadin="lazy" alt="How to use local PASETOs" src="https://d33wubrfki0l68.cloudfront.net/4b0bf94a502f80d08056d91587b1a3aa4f8cb391/9a947/assets-jekyll/blog/a-thorough-introduction-to-paseto/how-to-use-local-pasetos-1116dd746b1e11a4f5dcfa5e22016d7da449405d3deb0f1bccb90d7ef10bb949.gif" />
 
 <blockquote class="mt-6 relative p-4 text-sm italic border-l-4 bg-gray-200 text-gray-600 border-gray-500 quote has-paragraphs">
 Пользователь: я хочу скачать video1.mp4
@@ -242,7 +242,7 @@ dl. сервер знает secret_key:
 1. Вебсайт проверяет PASETO, а затем создает для пользователя долгоживущую сессию с использованием безопасных файлов cookie и стандартных потоков управления сессиями на стороне сервера
 1. Теперь пользователь аутенифицирован на вебсайте с использованием PASETO, чтобы сделать возможным дальнейший процесс аутентификации
 
-![How to use public PASETOs](https://d33wubrfki0l68.cloudfront.net/510ca75f511217f250096e4b96e4246931078344/13f41/assets-jekyll/blog/a-thorough-introduction-to-paseto/how-to-use-public-pasetos-47e795cc5fdf69e6edeafd0731a817e04526651f07315649b3efb147fec23299.gif)
+<img alt="How to use public PASETOs" src="https://d33wubrfki0l68.cloudfront.net/510ca75f511217f250096e4b96e4246931078344/13f41/assets-jekyll/blog/a-thorough-introduction-to-paseto/how-to-use-public-pasetos-47e795cc5fdf69e6edeafd0731a817e04526651f07315649b3efb147fec23299.gif" />
 
 <blockquote class="mt-6 relative p-4 text-sm italic border-l-4 bg-gray-200 text-gray-600 border-gray-500 quote has-paragraphs">
 Пользователь: я хочу авторизоваться
