@@ -1,11 +1,12 @@
 ---
+layout: ../../layouts/PostLayout.astro
 title: "Подробное введение в PASETO (translated to Russian)"
 date: "2020-05-09"
 og:image: "https://developer.okta.com/assets-jekyll/blog/a-thorough-introduction-to-paseto/an-introduction-to-paseto-41ea2679a51c2c39a410020c2159d4f915165897f3ce575f9a659d0ec77fd324.png"
 ---
 
 <blockquote class="mt-6 relative p-4 text-xl italic border-l-4 bg-gray-200 text-gray-600 border-gray-500 quote" title="This article is a translation of 'A Thorough Introduction to PASETO' by Randall Degges">
-    Данная статья является переводом 
+    {"Данная статья является переводом "}
     <a
         href="https://developer.okta.com/blog/2019/10/17/a-thorough-introduction-to-paseto"
         target="_blank"
@@ -14,7 +15,7 @@ og:image: "https://developer.okta.com/assets-jekyll/blog/a-thorough-introduction
     >
         A Thorough Introduction to PASETO
     </a>
-    написанная
+    {" написанная "}
     <a
         href="https://developer.okta.com/blog/authors/randall-degges/"
         target="_blank"
@@ -24,6 +25,7 @@ og:image: "https://developer.okta.com/assets-jekyll/blog/a-thorough-introduction
         Randall Degges
     </a>
 </blockquote>
+
 
 Сегодня я хочу познакомить вас с одной из моих любимых технологий безопасности из тех, что были выпущены за последние несколько лет: **PASETO** (_platform-agnostic security tokens_). PASETO - сравнительно новый протокол, разработанный [Скоттом Аркишевски](https://paragonie.com/) в начале 2018 года, который быстро завоевывает признание в кругах тех, кто занимается безопасностью.
 
@@ -51,7 +53,7 @@ PASETO - это не что иное, как простые строки в ко
 
 Этот PASETO был создан из следующего JSON объекта.
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">{
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">{`{
   "exp": "2019-10-09T13:59:13-07:00",
   "id": "59e5d078-8783-4c64-bed2-3c759e47b477",
   "name": "Randall Degges",
@@ -60,7 +62,7 @@ PASETO - это не что иное, как простые строки в ко
     "download:file-b.mp4",
     "download:file-c.mp4"
   ]
-}</code></pre>
+}`}</code></pre>
 
 PASETO можно разделить на 3 (_иногда 4_) сегмента, которые разделены точками.
 
@@ -78,8 +80,7 @@ PASETO можно разделить на 3 (_иногда 4_) сегмента,
 
 Если соединить все сегменты вместе, то у PASETO будет следующий формат:
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">version.purpose.payload.optional_footer
-</code></pre>
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">version.purpose.payload.optional_footer</code></pre>
 
 ## Как работают PASETO?
 
@@ -138,17 +139,17 @@ PASETO можно разделить на 3 (_иногда 4_) сегмента,
 
 Например, представим, что вы создали PASETO из следующего JSON объекта.
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">{
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">{`{
   "eyeColor": "brown",
   "height": "6'0",
   "weight": "220lbs"
-}</code></pre>
+}`}</code></pre>
 
 В этом примере, `eyeColor`, `height` и `weight` являются _требованиями_ вашего токена.
 
 Стандарт PASETO определяет несколько зарезервированных требований, которые вы не можете использовать для каких-либо целей, кроме их официальных. Это следующие требования (_взято непосредственно с [PASETO RFC](https://paseto.io/rfc/)_).
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">+-----+------------+--------+-------------------------------------+
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">{`+-----+------------+--------+-------------------------------------+
 | Key |    Name    |  Type  |               Example               |
 +-----+------------+--------+-------------------------------------+
 | iss |   Issuer   | string |       {"iss":"paragonie.com"}       |
@@ -159,7 +160,7 @@ PASETO можно разделить на 3 (_иногда 4_) сегмента,
 | iat | Issued At  | DtTime | {"iat":"2038-03-17T00:00:00+00:00"} |
 | jti |  Token ID  | string |  {"jti":"87IFSGFgPNtQNNuw0AtuLttP"} |
 | kid |   Key-ID   | string |    {"kid":"stored-in-the-footer"}   |
-+-----+------------+--------+-------------------------------------+</code></pre>
++-----+------------+--------+-------------------------------------+`}</code></pre>
 
 Эти требования имеют специальные цели, и реализации PASETO позволяют испольщовать их для выполнения полезных функций.
 
@@ -196,7 +197,7 @@ PASETO разработаны как одноразовые токены, пре
 
 ![How to use local PASETOs](https://d33wubrfki0l68.cloudfront.net/4b0bf94a502f80d08056d91587b1a3aa4f8cb391/9a947/assets-jekyll/blog/a-thorough-introduction-to-paseto/how-to-use-local-pasetos-1116dd746b1e11a4f5dcfa5e22016d7da449405d3deb0f1bccb90d7ef10bb949.gif)
 
-<blockquote class="mt-6 relative p-4 text-sm italic border-l-4 bg-gray-200 text-gray-600 border-gray-500 quote">
+<blockquote class="mt-6 relative p-4 text-sm italic border-l-4 bg-gray-200 text-gray-600 border-gray-500 quote has-paragraphs">
 Пользователь: я хочу скачать video1.mp4
 
 wwww. севрер знает secret_key:
@@ -243,7 +244,7 @@ dl. сервер знает secret_key:
 
 ![How to use public PASETOs](https://d33wubrfki0l68.cloudfront.net/510ca75f511217f250096e4b96e4246931078344/13f41/assets-jekyll/blog/a-thorough-introduction-to-paseto/how-to-use-public-pasetos-47e795cc5fdf69e6edeafd0731a817e04526651f07315649b3efb147fec23299.gif)
 
-<blockquote class="mt-6 relative p-4 text-sm italic border-l-4 bg-gray-200 text-gray-600 border-gray-500 quote">
+<blockquote class="mt-6 relative p-4 text-sm italic border-l-4 bg-gray-200 text-gray-600 border-gray-500 quote has-paragraphs">
 Пользователь: я хочу авторизоваться
 
 вебсайт перенаправляет пользователя на сервер авторизации
@@ -263,7 +264,8 @@ dl. сервер знает secret_key:
 - получает параметр `token` из URL
 - проверяет подпись токена
 - создаёт защищённую сессию используя
-  серверный механизм управления сессией</blockquote>
+  серверный механизм управления сессией
+</blockquote>
 
 В этом примере, пожалуйста, обратите внимание , что приведенный выше PASETO _используется только один раз_: для информирования вебсайта об успешной аутентификации пользователя через сервес авторизации. Следует также отметить, что этот поток работает только тогда, когда вебсайт имеет доступ к **открытому ключу** сервера авторизации. Этот открытый ключ _необходим_ для того, чтобы вебсайт мог проверить действительность PASETO, отправленного ему сервером авторизации.
 
@@ -308,7 +310,8 @@ PASETO следует использовать только один раз, п�
 
 Для начала давайте посмотрим, как можно создать локальный PASETO. Обратите внимание, что ниже я генерирую секретный ключ, используя _безопасный_ генератор случайных чисел на основе [/dev/urandom](https://unix.stackexchange.com/questions/324209/when-to-use-dev-random-vs-dev-urandom).
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">import json
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">
+{`import json
 import secrets
 import uuid
 
@@ -334,8 +337,8 @@ data = {
 
 # Create a new PASETO.
 #
-# `token` can be safely shared in URL params over the internet safely as
-# it is a base64 encoded string. The `token` value is encrypted.
+# \`token\` can be safely shared in URL params over the internet safely as
+# it is a base64 encoded string. The \`token\` value is encrypted.
 token = paseto.create(
     key=key,
     purpose='local',
@@ -356,11 +359,13 @@ PASETO
 ~~~~~~
 
 {token.decode("utf-8")}
-''')</code></pre>
+''')`}
+</code></pre>
 
 Если вы запустили приведенный выше пример кода, то должны увидеть следующее.
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">Token Data
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">
+{`Token Data
 ~~~~~~~~~~
 
 {
@@ -377,7 +382,8 @@ PASETO
 PASETO
 ~~~~~~
 
-v2.local.vB7daJlQOL5sY8mQa_FWb6ZYbkNi8yeRqI-DCFNEPTYEu7ItQHMMM5jzD_fw-G7l-AXJRBj3E9jxx9-JS5eG436WGUn03zYp2nuV3PVqppEyRP9LoZ1TTBREhR182NRcNYqUkM8FfazWegWcLc1gSzFXx0Kge4U7XHtAlliTrR8p09hH6qVpqAsgMdp00ao66JX_mxlEjkL3y784CoAK-gyy_ZZ1WzAvYAjQApl859RxnB9uLMpb-VURmetmrw9sC_Iw27to46ulTcMxx_KoSBem9eSG5M4bvNQC5YFeDLIM2HXDf35YIo50.eyJraWQiOiAiMTIzNDUifQ</code></pre>
+v2.local.vB7daJlQOL5sY8mQa_FWb6ZYbkNi8yeRqI-DCFNEPTYEu7ItQHMMM5jzD_fw-G7l-AXJRBj3E9jxx9-JS5eG436WGUn03zYp2nuV3PVqppEyRP9LoZ1TTBREhR182NRcNYqUkM8FfazWegWcLc1gSzFXx0Kge4U7XHtAlliTrR8p09hH6qVpqAsgMdp00ao66JX_mxlEjkL3y784CoAK-gyy_ZZ1WzAvYAjQApl859RxnB9uLMpb-VURmetmrw9sC_Iw27to46ulTcMxx_KoSBem9eSG5M4bvNQC5YFeDLIM2HXDf35YIo50.eyJraWQiOiAiMTIzNDUifQ`}
+</code></pre>
 
 Строка PASETO в результате содержит данные JSON в зашифрованном виде и будет действительна только в течение 5 минут. Если бы я попытался проверить этот PASETO
 
@@ -385,7 +391,8 @@ v2.local.vB7daJlQOL5sY8mQa_FWb6ZYbkNi8yeRqI-DCFNEPTYEu7ItQHMMM5jzD_fw-G7l-AXJRBj
 
 Теперь, когда я создал этот PASETO, давайте посмотрим, как его можно расшифровать обратно в исходную форму JSON.
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class=""># Given a PASETO token and the secret key from before, we can decrypt it and
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">
+{`# Given a PASETO token and the secret key from before, we can decrypt it and
 # transform the PASETO string back into a token object
 parsed = paseto.parse(
     key=key,
@@ -407,11 +414,13 @@ PASETO Footer
 ~~~~~~~~~~~~~
 
 {json.dumps(parsed['footer'], indent=2)}
-''')</code></pre>
+''')`}
+</code></pre>
 
 Если вы запустили код выше, то должны увидеть следущее.
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">Expanded PASETO
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">
+{`Expanded PASETO
 ~~~~~~~~~~~~~~~
 
 {
@@ -430,18 +439,21 @@ PASETO Footer
 
 {
   "kid": "12345"
-}</code></pre>
+}`}
+</code></pre>
 
 В этом случае расшифровка PASETO сработала отлично, так как использовался правильный секретный ключ , а срок действия еще не истек.
 
 Если вы попытаетесь расшифровать PASETO с истекшим сроком действия , вы получите следующее.
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">Traceback (most recent call last):
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">
+{`Traceback (most recent call last):
   File "test.py", line 60, in <module>
     token=token
   File "/home/rdegges/.pyenv/versions/paseto/lib/python3.7/site-packages/paseto.py", line 314, in parse
     raise PasetoTokenExpired('token expired')
-paseto.PasetoTokenExpired: token expired</code></pre>
+paseto.PasetoTokenExpired: token expired`}
+</code></pre>
 
 Точно так же, если вы попытаетесь расшифровать PASETO, используя неверный ключ, то получите ошибку.
 
@@ -451,7 +463,8 @@ paseto.PasetoTokenExpired: token expired</code></pre>
 
 Вот небольшой пример приложения, которое создает пару открытый/закрытый ключ, а затем чеканит новый PASETO с использованием закрытого ключа. Обратите внимание, что пара открытый/закрытый ключ генерируется с использованием [libsodium](https://github.com/stef/pysodium).
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">import json
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">
+{`import json
 import secrets
 import uuid
 
@@ -461,8 +474,8 @@ import pysodium
 
 # Create a secure public/private keypair using libsodium
 #
-# - `pk` is the public key
-# - `sk` is the secret (private) key
+# - \`pk\` is the public key
+# - \`sk\` is the secret (private) key
 pk, sk = pysodium.crypto_sign_keypair()
 
 # Amount of time (in seconds) this token should be valid for
@@ -476,8 +489,8 @@ data = {
 
 # Create a new PASETO.
 #
-# `token` can be safely shared in URL params over over the internet safely as
-# it is a base64 encoded string. The `token` value is NOT encrypted here, but it
+# \`token\` can be safely shared in URL params over over the internet safely as
+# it is a base64 encoded string. The \`token\` value is NOT encrypted here, but it
 # is cryptographically signed.
 token = paseto.create(
     key=sk,
@@ -499,11 +512,13 @@ PASETO
 ~~~~~~
 
 {token.decode("utf-8")}
-''')</code></pre>
+''')`}
+</code></pre>
 
 Если вы запустили эту программу, вы увидите следующее.
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">Token Data
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">
+{`Token Data
 ~~~~~~~~~~
 
 {
@@ -515,13 +530,15 @@ PASETO
 PASETO
 ~~~~~~
 
-v2.public.eyJpZCI6ICI0MTBkZjI5Ni04OWQ1LTQzODAtODQyMy02ZjJkNzMwNDA3NDQiLCAibmFtZSI6ICJSYW5kYWxsIERlZ2dlcyIsICJleHAiOiAiMjAxOS0xMC0xMFQxMTowMzoyNC0wNzowMCJ9xe6hZBYn8IZoJmgL9k1VjTcl7Dz4T-lo2FvIxeFXQNtNY3QAyCaa5XW-29n-9nV-beU6z7P-YF97lPFvnPfnDA.eyJraWQiOiAiMTIzNDUifQ</code></pre>
+v2.public.eyJpZCI6ICI0MTBkZjI5Ni04OWQ1LTQzODAtODQyMy02ZjJkNzMwNDA3NDQiLCAibmFtZSI6ICJSYW5kYWxsIERlZ2dlcyIsICJleHAiOiAiMjAxOS0xMC0xMFQxMTowMzoyNC0wNzowMCJ9xe6hZBYn8IZoJmgL9k1VjTcl7Dz4T-lo2FvIxeFXQNtNY3QAyCaa5XW-29n-9nV-beU6z7P-YF97lPFvnPfnDA.eyJraWQiOiAiMTIzNDUifQ`}
+</code></pre>
 
 Заметьте, что в этот раз заголовок PASETO - `v2.public`. Это позволяет с легкостью определить тип PASETO, с которым вы работаете.
 
 Теперь, когда вы создали публичный PASETO, как вам проверить данные, которые в нем содержатся? Давайте взглянем!
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class=""># Given a PASETO token and the public key from before, we can validate that this
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">
+{`# Given a PASETO token and the public key from before, we can validate that this
 # token was generated by the owner of the secret key and that the data it
 # contains hasn't been tampered with.
 parsed = paseto.parse(
@@ -544,11 +561,13 @@ PASETO Footer
 ~~~~~~~~~~~~~
 
 {json.dumps(parsed['footer'], indent=2)}
-''')</code></pre>
+''')`}
+</code></pre>
 
 Если вы запустили эту программу, то увидите следующей вывод.
 
-<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">Expanded PASETO
+<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto"><code class="">
+{`Expanded PASETO
 ~~~~~~~~~~~~~~~
 
 {
@@ -562,7 +581,8 @@ PASETO Footer
 
 {
   "kid": "12345"
-}</code></pre>
+}`}
+</code></pre>
 
 Как видите, создание и проверка публичных PASETO - это несложно.
 
@@ -593,27 +613,41 @@ PASETO применяет подход к разработке токенов б
 В общем, я большой поклонник технологии PASETO и вижу большой потенциал в ее внедрении и использовании. В настоящее время в Okta мы работаем над некоторыми проектами, ориентированными на PASETO, которые мы надеемся выпустить в ближайшие месяцы, чтобы сделать технологию PASETO более распространенной. Хотя мы все еще используем в нашем продукте JSON Web Token, мы также работаем над открытыми стандартами, чтобы сделать использование JSON Web Token более безопасным. Наша надежда в том, что решив проблему со всех сторон, мы сможем повысить безопасность токенов в сети для всех.
 
 <blockquote class="mt-6 relative p-4 text-xl italic border-l-4 bg-gray-200 text-gray-600 border-gray-500 quote" title="This article is a translation of 'A Thorough Introduction to PASETO' by Randall Degges">
-    Данная статья является переводом 
+    {"Данная статья является переводом "}
     <a
         href="https://developer.okta.com/blog/2019/10/17/a-thorough-introduction-to-paseto"
         target="_blank"
         rel="noopener noreferrer"
         class="text-gray-700 no-underline hover:text-gray-900 hover:underline"
     >
-        A Thorough Introduction to PASETO</a>, если вы хотите оставить комментарий автору оригинальной статьи, то напишите в <a
+        A Thorough Introduction to PASETO
+    </a>
+    {", если вы хотите оставить комментарий автору оригинальной статьи, то напишите в "}
+    <a
         href="https://twitter.com/oktadev"
         target="_blank"
         rel="noopener noreferrer"
         class="text-gray-700 no-underline hover:text-gray-900 hover:underline"
-    >@oktadev</a> или <a
+    >
+    @oktadev
+    </a>
+    {" или "}
+    <a
         href="https://twitter.com/rdegges"
         target="_blank"
         rel="noopener noreferrer"
         class="text-gray-700 no-underline hover:text-gray-900 hover:underline"
-    >@rdegges</a>. Если у вас есть предложения по переводу, лучшее место для этого напрямую в <a
+    >
+    @rdegges
+    </a>
+    {". Если у вас есть предложения по переводу, лучшее место для этого напрямую в "}
+    <a
         href="https://github.com/JLarky/jlarky/blob/master/posts/a-thorough-introduction-to-paseto.md"
         target="_blank"
         rel="noopener noreferrer"
         class="text-gray-700 no-underline hover:text-gray-900 hover:underline"
-    >гитхабе</a>.
+    >
+    гитхабе
+    </a>
+    .
 </blockquote>

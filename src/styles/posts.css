@@ -14,6 +14,14 @@ a {
   @apply py-4;
 }
 
+.blog-content blockquote:not(.has-paragraphs) p {
+  display: inline;
+}
+
+.blog-content blockquote:is(.has-paragraphs) p:first-child {
+  @apply py-0;
+}
+
 .blog-content h1,
 .blog-content h2,
 .blog-content h3,
@@ -45,6 +53,10 @@ a {
 .blog-content blockquote ul,
 .blog-content blockquote ol {
   @apply py-2 pl-4;
+}
+
+.blog-content pre {
+  @apply bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4 overflow-auto
 }
 
 /* @tailwind components; */
