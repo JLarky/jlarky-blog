@@ -26,6 +26,7 @@
     "vite": "^3.0.4"
   },
   "dependencies": {
+    "@astrojs/partytown": "^0.1.9",
     "date-fns": "^2.29.1"
   }
 }
