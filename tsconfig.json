@@ -12,7 +12,8 @@
     // from https://vitejs.dev/guide/features.html#typescript-compiler-options
     "useDefineForClassFields": true,
     // Add type definitions for our Vite runtime.
-    "types": ["vite/client", "node"],
+    "types": ["astro/client", "node"],
+    "outDir": "./dist",
     // ts options
     "forceConsistentCasingInFileNames": true,
     "strict": true,
