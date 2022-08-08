@@ -168,66 +168,65 @@ const {
       let showMenu = false
       const nav = document.querySelector('nav')
       const button = document.querySelector('#toggle_menu')
-
       const mobile_menu = document.querySelector('#mobile_menu')
-      if (!nav || !button || !mobile_menu) {
-        return
-      }
-      function updateScrollDown() {
-        if (scrolledDownPrev === scrolledDown) {
-          return
+      if (nav && button && mobile_menu) {
+        function updateScrollDown() {
+          if (scrolledDownPrev === scrolledDown) {
+            return
+          }
+          scrolledDownPrev = scrolledDown
+          if (scrolledDown) {
+            nav?.classList.replace('bg-gray-100', 'bg-white')
+          } else {
+            nav?.classList.replace('bg-white', 'bg-gray-100')
+          }
+          updateNavShaddow()
         }
-        scrolledDownPrev = scrolledDown
-        if (scrolledDown) {
-          nav.classList.replace('bg-gray-100', 'bg-white')
-        } else {
-          nav.classList.replace('bg-white', 'bg-gray-100')
+
+        function updateMenu() {
+          if (!showMenu) {
+            mobile_menu?.classList.add('hidden', 'lg:block')
+          } else {
+            mobile_menu?.classList.remove('hidden', 'lg:block')
+          }
+          updateNavShaddow()
         }
-        updateNavShaddow()
-      }
 
-      function updateMenu() {
-        if (!showMenu) {
-          mobile_menu.classList.add('hidden', 'lg:block')
-        } else {
-          mobile_menu.classList.remove('hidden', 'lg:block')
+        function updateNavShaddow() {
+          // (scrolledDown || showMenu) && 'shadow'
+          nav?.classList.toggle('shadow', scrolledDown || showMenu)
         }
-        updateNavShaddow()
+
+        button.addEventListener('click', () => {
+          showMenu = !showMenu
+          updateMenu()
+        })
+
+        /* Progress bar */
+        //Source: https://alligator.io/js/progress-bar-javascript-css-variables/
+        var h = document.documentElement,
+          b = document.body,
+          st = 'scrollTop' as const,
+          sh = 'scrollHeight' as const,
+          scroll
+        var scrollPosition = window.scrollY
+
+        const listener = function () {
+          /*Refresh scroll % width*/
+          scroll =
+            ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100
+          ;(
+            document.querySelector('#progress') as HTMLElement
+          )?.style.setProperty('--scroll', scroll + '%')
+
+          scrollPosition = window.scrollY
+
+          scrolledDown = scrollPosition > 10
+          updateScrollDown()
+        }
+        document.addEventListener('scroll', listener)
+        listener()
       }
-
-      function updateNavShaddow() {
-        // (scrolledDown || showMenu) && 'shadow'
-        nav.classList.toggle('shadow', scrolledDown || showMenu)
-      }
-
-      button.addEventListener('click', () => {
-        showMenu = !showMenu
-        updateMenu()
-      })
-
-      /* Progress bar */
-      //Source: https://alligator.io/js/progress-bar-javascript-css-variables/
-      var h = document.documentElement,
-        b = document.body,
-        st = 'scrollTop',
-        sh = 'scrollHeight',
-        scroll
-      var scrollPosition = window.scrollY
-
-      const listener = function () {
-        /*Refresh scroll % width*/
-        scroll = ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100
-        document
-          .querySelector('#progress')
-          ?.style.setProperty('--scroll', scroll + '%')
-
-        scrollPosition = window.scrollY
-
-        scrolledDown = scrollPosition > 10
-        updateScrollDown()
-      }
-      document.addEventListener('scroll', listener)
-      listener()
     })()
   </script>
 </BaseLayout>
