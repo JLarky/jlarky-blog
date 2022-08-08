@@ -169,7 +169,8 @@ const {
       const nav = document.querySelector('nav')
       const button = document.querySelector('#toggle_menu')
       const mobile_menu = document.querySelector('#mobile_menu')
-      if (nav && button && mobile_menu) {
+      const progress = document.querySelector<HTMLElement>('#progress')
+      if (nav && button && mobile_menu && progress) {
         function updateScrollDown() {
           if (scrolledDownPrev === scrolledDown) {
             return
@@ -215,9 +216,7 @@ const {
           /*Refresh scroll % width*/
           scroll =
             ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100
-          ;(
-            document.querySelector('#progress') as HTMLElement
-          )?.style.setProperty('--scroll', scroll + '%')
+          progress.style.setProperty('--scroll', scroll + '%')
 
           scrollPosition = window.scrollY
 
