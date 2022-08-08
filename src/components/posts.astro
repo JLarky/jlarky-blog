@@ -1,0 +1,18 @@
+---
+import { parseISO } from 'date-fns'
+import { PostMeta } from '../lib/types'
+
+export async function getAllPosts() {
+  const posts = await Astro.glob('../pages/posts/*.md')
+  const allPostsData = posts
+    .map((x) => {
+      const meta = x.frontmatter as PostMeta
+      if (!x.url) {
+        throw new Error(`No url found for ${x.file}`)
+      }
+      return { ...meta, url: x.url, time: parseISO(meta.date).getTime() }
+    })
+    .sort((a, b) => b.time - a.time)
+  return allPostsData
+}
+---
