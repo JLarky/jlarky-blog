@@ -18,70 +18,70 @@ const {
 ---
 
 <BaseLayout {title} {metadescription} {ogImageUrl}>
-  <div class='bg-gray-100 font-sans leading-normal tracking-normal'>
-    <nav class='fixed w-full z-10 top-0 bg-gray-100'>
+  <div class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <nav class="fixed w-full z-10 top-0 bg-gray-100">
       <div
-        id='progress'
-        class='h-1 z-20 top-0'
-        style='background: linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0)'
+        id="progress"
+        class="h-1 z-20 top-0"
+        style="background: linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0)"
       >
       </div>
       <div
-        class='w-full lg:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3'
+        class="w-full lg:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3"
       >
-        <div class='pl-4'>
+        <div class="pl-4">
           <a
-            class='text-gray-900 hover:no-underline font-extrabold text-xl'
-            href='/'
+            class="text-gray-900 hover:no-underline font-extrabold text-xl"
+            href="/"
           >
             {home
               ? 'The Official Website of Yaroslav Lapin'
               : "Yaroslav Lapin's Blog"}
           </a>
         </div>
-        <div class='block lg:hidden pr-4'>
+        <div class="block lg:hidden pr-4">
           <button
-            id='toggle_menu'
-            class='flex items-center px-3 py-2 border rounded text-gray-500 border-gray-500
-                        hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none'
+            id="toggle_menu"
+            class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-500
+                        hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none"
           >
             <svg
-              class='fill-current h-3 w-3'
-              viewBox='0 0 20 20'
-              xmlns='http://www.w3.org/2000/svg'
+              class="fill-current h-3 w-3"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <title>Menu</title>
-              <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z'></path>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
             </svg>
           </button>
         </div>
         <div
-          id='mobile_menu'
-          class='w-full flex-grow lg:items-center lg:w-auto mt-2 lg:mt-0 z-20 hidden lg:block'
+          id="mobile_menu"
+          class="w-full flex-grow lg:items-center lg:w-auto mt-2 lg:mt-0 z-20 hidden lg:block"
         >
-          <ul class='block list-reset lg:flex justify-end flex-1 items-center'>
-            <li class='mr-3'>
-              <HeaderNavLink href='/'>Home</HeaderNavLink>
+          <ul class="block list-reset lg:flex justify-end flex-1 items-center">
+            <li class="mr-3">
+              <HeaderNavLink href="/">Home</HeaderNavLink>
             </li>
-            <li class='mr-3'>
-              <HeaderNavLink href='/posts'>Blog</HeaderNavLink>
+            <li class="mr-3">
+              <HeaderNavLink href="/posts">Blog</HeaderNavLink>
             </li>
-            <li class='mr-3'>
-              <HeaderNavLink href='/contacts'>Contacts</HeaderNavLink>
+            <li class="mr-3">
+              <HeaderNavLink href="/contacts">Contacts</HeaderNavLink>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- Container -->
-    <div class='container w-full md:max-w-3xl mx-auto pt-20'>
+    <div class="container w-full md:max-w-3xl mx-auto pt-20">
       <div
-        class='w-full px-4 md:px-6 text-xl text-gray-800 leading-normal'
-        style='font-family: Georgia,serif'
+        class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal"
+        style="font-family: Georgia,serif"
       >
         <!-- Title -->
-        <div class='font-sans'>
-          <span class='text-base md:text-sm text-teal-500 font-bold'>
+        <div class="font-sans">
+          <span class="text-base md:text-sm text-teal-500 font-bold">
             <span>
               {backToBlog && (
                 <>
@@ -100,56 +100,56 @@ const {
         </div>
       </div>
       <main>
-        <slot></slot>
+        <slot />
       </main>
     </div>
     <!-- /container -->
-    <footer class='bg-white border-t border-gray-400 shadow'>
-      <div class='container max-w-4xl mx-auto flex py-8'>
-        <div class='w-full mx-auto flex flex-wrap'>
-          <div class='flex w-full md:w-1/2 '>
-            <div class='px-8'>
-              <h3 class='font-bold text-gray-900'>About</h3>
-              <p class='py-4 text-gray-600 text-sm'>
+    <footer class="bg-white border-t border-gray-400 shadow">
+      <div class="container max-w-4xl mx-auto flex py-8">
+        <div class="w-full mx-auto flex flex-wrap">
+          <div class="flex w-full md:w-1/2 ">
+            <div class="px-8">
+              <h3 class="font-bold text-gray-900">About</h3>
+              <p class="py-4 text-gray-600 text-sm">
                 This website is for entertainment purposes only (if I say so
                 myself). If you disagree with something please disregard it as a
                 bad joke. © {new Date().getFullYear()}
               </p>
             </div>
           </div>
-          <div class='flex w-full md:w-1/2'>
-            <div class='px-8'>
-              <h3 class='font-bold text-gray-900'>Social</h3>
-              <ul class='list-reset items-center text-sm pt-3'>
+          <div class="flex w-full md:w-1/2">
+            <div class="px-8">
+              <h3 class="font-bold text-gray-900">Social</h3>
+              <ul class="list-reset items-center text-sm pt-3">
                 <li>
                   <a
-                    onclick='gtag("event", "view_item, { content_id: "telegram" })'
-                    class='inline-block text-gray-500 hover:text-gray-900 hover:underline py-1'
-                    href='https://t.me/JLarky'
-                    target='_blank'
-                    rel='noopener noreferrer'
+                    onclick="gtag('event', 'view_item, { content_id: 'telegram' })"
+                    class="inline-block text-gray-500 hover:text-gray-900 hover:underline py-1"
+                    href="https://t.me/JLarky"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Telegram
                   </a>
                 </li>
                 <li>
                   <a
-                    onclick='gtag("event", "view_item, { content_id: "twitter" })'
-                    class='inline-block text-gray-500 hover:text-gray-900 hover:underline py-1'
-                    href='https://twitter.com/JLarky'
-                    target='_blank'
-                    rel='noopener noreferrer'
+                    onclick="gtag('event', 'view_item, { content_id: 'twitter' })"
+                    class="inline-block text-gray-500 hover:text-gray-900 hover:underline py-1"
+                    href="https://twitter.com/JLarky"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Twitter
                   </a>
                 </li>
                 <li>
                   <a
-                    onclick='gtag("event", "view_item, { content_id: "github" })'
-                    class='inline-block text-gray-500 hover:text-gray-900 hover:underline py-1'
-                    href='https://github.com/JLarky'
-                    target='_blank'
-                    rel='noopener noreferrer'
+                    onclick="gtag('event', 'view_item, { content_id: 'github' })"
+                    class="inline-block text-gray-500 hover:text-gray-900 hover:underline py-1"
+                    href="https://github.com/JLarky"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     GitHub
                   </a>

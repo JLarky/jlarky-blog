@@ -20,25 +20,25 @@ const ogImageUrl =
   )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`
 ---
 
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='utf-8' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title}</title>
     <!-- TODO: add GA for UA-5041583-11 see https://unpkg.com/astro-analytics@2.1.1/src/GoogleAnalytics.astro -->
     <meta
-      name='description'
+      name="description"
       content={metadescription ||
         'Yaroslav (JLarky) Lapin web developer extraordinaire'}
     />
-    <meta property='og:image' property='og:image' content={ogImageUrl} />
-    <meta property='og:title' name='og:title' content={siteTitle} />
-    <meta name='twitter:card' content='summary_large_image' />
-    <meta name='generator' content='Astro' />
+    <meta property="og:image" property="og:image" content={ogImageUrl} />
+    <meta property="og:title" name="og:title" content={siteTitle} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="generator" content="Astro" />
   </head>
 
   <body>
-    <slot></slot>
+    <slot />
   </body>
 </html>
