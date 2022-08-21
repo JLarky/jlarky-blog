@@ -16,16 +16,18 @@ const { allPostsData } = Astro.props as Props
 >
   <h2 class="py-4 text-2xl font-bold">Blog</h2>
   <ul>
-    {allPostsData.map(({ url, date, title }) => (
-      <li>
-        <a href={url} class="underline">
-          {title}
-        </a>
-        <br />
-        <small>
-          <Date dateString={date} format="LLLL d, yyyy" />
-        </small>
-      </li>
-    ))}
+    {
+      allPostsData.map(({ url, date, title }) => (
+        <li>
+          <a href={url} class="underline">
+            {title}
+          </a>
+          <br />
+          <small>
+            <Date dateString={date} format="LLLL d, yyyy" />
+          </small>
+        </li>
+      ))
+    }
   </ul>
 </section>

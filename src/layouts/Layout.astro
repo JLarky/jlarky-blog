@@ -34,16 +34,17 @@ const {
             class="text-gray-900 hover:no-underline font-extrabold text-xl"
             href="/"
           >
-            {home
-              ? 'The Official Website of Yaroslav Lapin'
-              : "Yaroslav Lapin's Blog"}
+            {
+              home
+                ? 'The Official Website of Yaroslav Lapin'
+                : "Yaroslav Lapin's Blog"
+            }
           </a>
         </div>
         <div class="block lg:hidden pr-4">
           <button
             id="toggle_menu"
-            class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-500
-                        hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none"
+            class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-500 hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none"
           >
             <svg
               class="fill-current h-3 w-3"
@@ -83,17 +84,19 @@ const {
         <div class="font-sans">
           <span class="text-base md:text-sm text-teal-500 font-bold">
             <span>
-              {backToBlog && (
-                <>
-                  &lt;{' '}
-                  <a
-                    href="/posts"
-                    class="text-base md:text-sm text-teal-500 font-bold hover:underline"
-                  >
-                    BACK TO BLOG
-                  </a>
-                </>
-              )}
+              {
+                backToBlog && (
+                  <>
+                    &lt;{' '}
+                    <a
+                      href="/posts"
+                      class="text-base md:text-sm text-teal-500 font-bold hover:underline"
+                    >
+                      BACK TO BLOG
+                    </a>
+                  </>
+                )
+              }
               <p></p>
             </span>
           </span>
@@ -107,7 +110,7 @@ const {
     <footer class="bg-white border-t border-gray-400 shadow">
       <div class="container max-w-4xl mx-auto flex py-8">
         <div class="w-full mx-auto flex flex-wrap">
-          <div class="flex w-full md:w-1/2 ">
+          <div class="flex w-full md:w-1/2">
             <div class="px-8">
               <h3 class="font-bold text-gray-900">About</h3>
               <p class="py-4 text-gray-600 text-sm">
