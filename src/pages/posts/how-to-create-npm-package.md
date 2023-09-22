@@ -4,30 +4,30 @@ title: "Creating an NPM Package in 2024"
 date: "2023-09-21"
 ---
 
-## Jokey intro
+## Jokey Intro
 
-So you want to create an npm package? Well, my advice is don't. It's a lot of work and the results are rarely worth it. npm has 2,532,666 packages at the moment of me writing this, and by the time you are finished with this article it's guaranteed that there will be at least 10 more.
+So, you want to create an npm package? My advice? Don't. It's a lot of work, and the results are often not worth the effort. At the time of me writing this, npm has 2,532,666 packages. By the time you finish this article, it's guaranteed there will be at least 10 more.
 
-On the surface it sounds simple, write some code in a file and push it to [npm](https://www.npmjs.com/). But you can't just push the code, you also need `package.json` with all kinds of metadata. You also can't just push the source code, if you are using TypeScript (and you should) you suddendly have a build step, bundlers, minifiers, CommonJS, ES Modules, the list goes on.
+On the surface, it sounds simple: write some code in a file and push it to [npm](https://www.npmjs.com/). But you can't just push the code; you also need a `package.json` filled with all sorts of metadata. You can't merely push the source code either. If you're using TypeScript (and you should be), suddenly you have a build step, bundlers, minifiers, CommonJS, ES Modules — the list goes on.
 
 ## I ain't reading all that. I'm happy for u tho. Or sorry that happened.
 
 - [GH repo](https://github.com/JLarky/is-not-bun)
 - [Youtube tutorial](https://www.youtube.com/live/A19Jvot9hI4?si=Rf5iakJOPmcTEMxo)
 
-## Best way to author an npm package is Deno
+## The Best Way to Author an NPM Package is Deno
 
-[Deno](https://deno.com/) is an alternative JavaScript runtime that has lint/typescript/bundle built in. You don't actually have to care about Deno to follow this tutorial.
+[Deno](https://deno.com/) is an alternative JavaScript runtime that comes with built-in lint, TypeScript, and bundling capabilities. You don't need to be familiar with Deno to follow this tutorial.
 
-First step, [install Deno](https://docs.deno.com/runtime/manual/getting_started/installation) if you haven't yet, if you use Mac or Linux it's just one command:
+For the first step, [install Deno](https://docs.deno.com/runtime/manual/getting_started/installation). If you're on a Mac or Linux, it's just one command:
 
 ```
 curl -fsSL https://deno.land/x/install/install.sh | sh
 ```
 
-## 1. Create a new project
+## 1. Create a New Project
 
-Create a new folder for your project and run `deno init` in it:
+Create a new folder for your project and run `deno init`:
 
 ```
 mkdir is-not-bun
@@ -36,7 +36,7 @@ deno init
 touch README.md LICENSE
 ```
 
-Obviously replace `is-not-bun` with the name of your package. This tutorial is a text version of this [Youtube tutorial](https://www.youtube.com/live/A19Jvot9hI4?si=Rf5iakJOPmcTEMxo) and is going to follow the same problem space of just returning if user is running npm package using [Bun](https://bun.sh/) (again, you don't have to care about this).
+Replace `is-not-bun` with the name of your package. This tutorial is the text version of this [Youtube tutorial](https://www.youtube.com/live/A19Jvot9hI4?si=Rf5iakJOPmcTEMxo) and will address the same problem space of determining if a user is running an npm package using [Bun](https://bun.sh/) (you don't need to know about Bun either).
 
 ## 2. Create your code
 
@@ -78,7 +78,7 @@ You will see the output:
 No Bun, no problem
 ```
 
-Notice the difference, because we are using Deno we have to add `npm:` prefix. Bun on the other side we don't actually need to run `npm install` because Deno will automatically download the package from NPM.
+Notice the difference, because we are using Deno we have to add `npm:` prefix when importing npm packages, but the positive is that we don't need to run `npm install`, because Deno will automatically download the package from NPM.
 
 ## 3. DNT build script
 
@@ -216,7 +216,7 @@ npm login
 Let's celebrate a bit what we have accomplished:
 
 - We were able to author our package in TypeScript and because we are using Deno we can run `deno run cli.ts` without separate build step or even `npm install` and get nice developer experience (even though we were using dependencies from NPM)
-- Using dnt we were able to create nice and modern package setup with tree output formats: CommonJS (`npm/script/mod.js`), ES Modules (`npm/esm/mod.js`) and TypeScript source (`npm/src/mod.ts`)
+- Using dnt we were able to create nice and modern package setup with three output formats: CommonJS (`npm/script/mod.js`), ES Modules (`npm/esm/mod.js`) and TypeScript source (`npm/src/mod.ts`)
 - That npm package is checking all the boxes, it generated `.d.ts` files for TypeScript users and even `.js.map` with source maps for debugging
 - As a bonus we even got CLI that you can run with `npx is-not-bun` or as a script in your package.json `"scripts": { "fun": "is-not-bun" }` that you can run with `npm run fun`
 - And we can use some nice built-in Deno tools as extra bonus, which I will cover in the next section
@@ -289,6 +289,6 @@ Deno.bench(function benchIsNotBun() {
 
 ## Conclusion
 
-Creating npm packages is not easy. We've seen a lot of tools in this space and I encourage you to give dnt a go. By using dnt I was able to finally pass [package.json linter](https://publint.dev/) and this is not a small feat (try `jotai`, `redux`, `vite`).
+Creating npm packages can be challenging. We've seen many tools in this domain, and I encourage you to try dnt. With dnt, I was finally able to pass the [package.json linter](https://publint.dev/), which is no small achievement (try `jotai`, `redux`, `vite`).
 
-This tutorial does not cover a lot of dnt features, please checkout this [tweet](https://twitter.com/deno_land/status/1676264059585560578) for further reading and some replies from happy users.
+This tutorial hasn't covered many dnt features. For more information, please check out this [tweet](https://twitter.com/deno_land/status/1676264059585560578) for further reading and some replies from happy users.
